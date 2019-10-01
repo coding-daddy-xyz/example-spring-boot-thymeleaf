@@ -1,0 +1,21 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Spring Boot Thymeleaf Example :: User Details</title>
+</head>
+
+<body>
+    <div><a href="/">Home</a></div>
+    <div th:with="isUserDefined=${user != null}">
+        <div th:if="${isUserDefined}">
+            <h3>User Details</h3>
+            <div>Username: <span th:text="${user.username}"></span></div>
+            <div>Password: <span th:text="${user.password}"></span></div>
+            <div>E-Mail: <span th:text="${user.email}"></span></div>
+        </div>
+        <div th:unless="${isUserDefined}">
+            <div>User not be found!</div>
+        </div>
+    </div>
+</body>
+</html>
